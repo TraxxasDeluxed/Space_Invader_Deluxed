@@ -1,11 +1,8 @@
-# Ideas to do 
-# 1) Infinte screen scrool
- # 2) Powerups
-# 3) Red enmeny should have a faster firepower
-# 4) Add a home screen to tell the player how to play the game
+#https://www.youtube.com/watch?v=8SzTzvrWaAA
 import pygame
 import os
 import time
+
 import random
 
 pygame.font.init()
@@ -32,10 +29,26 @@ GREEN_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_green.png"))
 BLUE_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_blue.png"))
 YELLOW_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_yellow.png"))
 
-# Background image
+# Background image game
 BG = pygame.transform.scale(
     pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT)
 )
+
+#BG for homescreen
+Homescreen = pygame.transform.scale(
+    pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT)
+)
+
+class Button:
+   
+    def __init__(self,text,width,height,pos):
+        gui_font = pygame.font.Font(None,30)
+        #top rectangle
+        self.top_rect = pygame.rect(pos,(width,height))
+        self.top_color = '#475F77'
+
+        self.text_surf = gui_font
+        self.text_rect = self.text_surf.get_surf(center = self.top_rect.center)
 
 
 class Laser:
@@ -311,6 +324,7 @@ def main_menu():
         title_label = title_font.render(
             "Press the mouse to begin...", 1, (255, 255, 255)
         )
+        
         WIN.blit(title_label, (WIDTH / 2 - title_label.get_width() / 2, 350))
         pygame.display.update()
         for event in pygame.event.get():
