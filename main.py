@@ -1,4 +1,3 @@
-#https://www.youtube.com/watch?v=8SzTzvrWaAA
 import pygame
 import os
 import time
@@ -33,22 +32,6 @@ YELLOW_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_yellow.png"
 BG = pygame.transform.scale(
     pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT)
 )
-
-#BG for homescreen
-Homescreen = pygame.transform.scale(
-    pygame.image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT)
-)
-
-class Button:
-   
-    def __init__(self,text,width,height,pos):
-        gui_font = pygame.font.Font(None,30)
-        #top rectangle
-        self.top_rect = pygame.rect(pos,(width,height))
-        self.top_color = '#475F77'
-
-        self.text_surf = gui_font
-        self.text_rect = self.text_surf.get_surf(center = self.top_rect.center)
 
 
 class Laser:
@@ -173,7 +156,6 @@ class Enemy(Ship):
     }
     horizontal_velocity = 0
     vertical_velocity = 0
-    
 
     def __init__(self, x, y, color, health=100):  # "red","green", "blue"
         super().__init__(x, y, health)
@@ -185,7 +167,6 @@ class Enemy(Ship):
             self.horizontal_velocity = 1
         elif self.color == "blue":
             self.vertical_velocity = 0.5
-            
 
         self.mask = pygame.mask.from_surface(self.ship_img)
 
@@ -318,13 +299,41 @@ def main():
 
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 60)
+
     run = True
+    in_menu = True
+    while in_menu:
+        WIN.blit(BG, (0, 0))
+        title_label = title_font.render("Hello Player! To play the game you need to know some STRICT GUIDELINES!!", 0.5, (255, 255, 255))
+        title1_label = title_font.render("UP ARROW for moving up", 0.5, (255, 255, 255))
+        title2_label = title_font.render("DOWN ARROW for moving down", 0.5, (255, 255, 255))
+        title3_label = title_font.render("LEFT ARROW for moving left", 0.5, (255, 255, 255))
+        title4_label = title_font.render("RIGHT ARROW for moving right", 0.5, (255, 255, 255))
+        title5_label = title_font.render("You will have 5 lives", 0.5, (255, 255, 255))
+        title6_label = title_font.render("You wil LOSE A LIFE everytime you COLLIDE with an ENEMY or let the ENEMY EXIT the SCREEN!", 0.5, (255, 255, 255))
+        title7_label = title_font.render("You have a limited life! PLayer carefully as if it hits zero, then you die instantly!!", 0.5, (255, 255, 255))
+
+        WIN.blit(title_label, (WIDTH / 2 - title_label.get_width() / 2+100, 50))
+        WIN.blit(title1_label, (WIDTH / 2 - title_label.get_width() / 2+100, 100))
+        WIN.blit(title2_label, (WIDTH / 2 - title_label.get_width() / 2+100, 200))
+        WIN.blit(title3_label, (WIDTH / 2 - title_label.get_width() / 2+100, 300))
+        WIN.blit(title4_label, (WIDTH / 2 - title_label.get_width() / 2+100, 400))
+        WIN.blit(title5_label, (WIDTH / 2 - title_label.get_width() / 2+100, 500))
+        WIN.blit(title6_label, (WIDTH / 2 - title_label.get_width() / 2+100, 600))
+        WIN.blit(title7_label, (WIDTH / 2 - title_label.get_width() / 2+100, 700))
+
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                in_menu = False
+                
     while run:
         WIN.blit(BG, (0, 0))
         title_label = title_font.render(
             "Press the mouse to begin...", 1, (255, 255, 255)
         )
-        
         WIN.blit(title_label, (WIDTH / 2 - title_label.get_width() / 2, 350))
         pygame.display.update()
         for event in pygame.event.get():
