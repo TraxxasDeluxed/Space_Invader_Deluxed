@@ -55,7 +55,7 @@ class Laser:
 
 
 class Ship:
-    COOLDOWN = 30
+    COOLDOWN = 20
 
     def __init__(self, x, y, health=100):
         self.x = x
@@ -203,7 +203,7 @@ def main():
     enemy_vel = 1
 
     player_vel = 5
-    laser_vel = 5
+    laser_vel = 15
 
     player = Player(300, 630)
 
@@ -300,31 +300,50 @@ def main():
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 60)
     title_font1 = pygame.font.SysFont("comicsans", 24)
-    
 
     run = True
     in_menu = True
     while in_menu:
         WIN.blit(BG, (0, 0))
-        title_label = title_font1.render("Hello Player! To play the game you need to know some STRICT GUIDELINES!!", 0.5, (255, 255, 255))
-        title1_label = title_font1.render("UP ARROW for moving up", 0.5, (255, 255, 255))
-        title2_label = title_font1.render("DOWN ARROW for moving down", 0.5, (255, 255, 255))
-        title3_label = title_font1.render("LEFT ARROW for moving left", 0.5, (255, 255, 255))
-        title4_label = title_font1.render("RIGHT ARROW for moving right", 0.5, (255, 255, 255))
+        title_label = title_font1.render(
+            "Hello Player! To play the game you need to know some STRICT GUIDELINES!!",
+            0.5,
+            (255, 255, 255),
+        )
+        title1_label = title_font1.render(
+            "UP ARROW for moving up", 0.5, (255, 255, 255)
+        )
+        title2_label = title_font1.render(
+            "DOWN ARROW for moving down", 0.5, (255, 255, 255)
+        )
+        title3_label = title_font1.render(
+            "LEFT ARROW for moving left", 0.5, (255, 255, 255)
+        )
+        title4_label = title_font1.render(
+            "RIGHT ARROW for moving right", 0.5, (255, 255, 255)
+        )
         title5_label = title_font1.render("SPACE to shoot", 0.5, (255, 255, 255))
         title6_label = title_font1.render("You will have 5 lives", 0.5, (255, 255, 255))
-        title7_label = title_font1.render("You will LOSE A LIFE everytime you COLLIDE with an ENEMY or ENEMY EXITED the SCREEN!", 0.5, (255, 255, 255))
-        title8_label = title_font1.render("You have a limited life! PLayer carefully as if it hits zero, then you die instantly!!", 0.5, (255, 255, 255))
+        title7_label = title_font1.render(
+            "You will LOSE A LIFE everytime you COLLIDE with an ENEMY or ENEMY EXITED the SCREEN!",
+            0.5,
+            (255, 255, 255),
+        )
+        title8_label = title_font1.render(
+            "You have a limited life! PLayer carefully as if it hits zero, then you die instantly!!",
+            0.5,
+            (255, 255, 255),
+        )
 
-        WIN.blit(title_label, (WIDTH / 2 - title_label.get_width() / 2-60, 50))
-        WIN.blit(title1_label, (WIDTH / 2 - title1_label.get_width() / 21-350, 120))
-        WIN.blit(title2_label, (WIDTH / 2 - title2_label.get_width() / 2-235, 190))
-        WIN.blit(title3_label, (WIDTH / 2 - title3_label.get_width() / 2-250, 260))
-        WIN.blit(title4_label, (WIDTH / 2 - title4_label.get_width() / 2-241, 330))
-        WIN.blit(title5_label, (WIDTH / 2 - title5_label.get_width() / 2-304, 400))
-        WIN.blit(title6_label, (WIDTH / 2 - title6_label.get_width() / 2-289, 470))
+        WIN.blit(title_label, (WIDTH / 2 - title_label.get_width() / 2 - 60, 50))
+        WIN.blit(title1_label, (WIDTH / 2 - title1_label.get_width() / 21 - 350, 120))
+        WIN.blit(title2_label, (WIDTH / 2 - title2_label.get_width() / 2 - 235, 190))
+        WIN.blit(title3_label, (WIDTH / 2 - title3_label.get_width() / 2 - 250, 260))
+        WIN.blit(title4_label, (WIDTH / 2 - title4_label.get_width() / 2 - 241, 330))
+        WIN.blit(title5_label, (WIDTH / 2 - title5_label.get_width() / 2 - 304, 400))
+        WIN.blit(title6_label, (WIDTH / 2 - title6_label.get_width() / 2 - 289, 470))
         WIN.blit(title7_label, (WIDTH / 2 - title7_label.get_width() / 2, 540))
-        WIN.blit(title8_label, (WIDTH / 2 - title7_label.get_width() / 2-2, 610))
+        WIN.blit(title8_label, (WIDTH / 2 - title7_label.get_width() / 2 - 2, 610))
 
         pygame.display.update()
         for event in pygame.event.get():
@@ -332,7 +351,7 @@ def main_menu():
                 run = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 in_menu = False
-                
+
     while run:
         WIN.blit(BG, (0, 0))
         title_label = title_font.render(
