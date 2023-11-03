@@ -305,35 +305,16 @@ def main_menu():
     in_menu = True
     while in_menu:
         WIN.blit(BG, (0, 0))
-        title_label = title_font1.render(
-            "Hello Player! To play the game you need to know some STRICT GUIDELINES!!",
-            0.5,
-            (255, 255, 255),
-        )
-        title1_label = title_font1.render(
-            "UP ARROW for moving up", 0.5, (255, 255, 255)
-        )
-        title2_label = title_font1.render(
-            "DOWN ARROW for moving down", 0.5, (255, 255, 255)
-        )
-        title3_label = title_font1.render(
-            "LEFT ARROW for moving left", 0.5, (255, 255, 255)
-        )
-        title4_label = title_font1.render(
-            "RIGHT ARROW for moving right", 0.5, (255, 255, 255)
-        )
+        title_label = title_font1.render( "Hello Player! To play the game you need to know some STRICT GUIDELINES!!",0.5,(255, 255, 255),)
+        title1_label = title_font1.render( "UP ARROW for moving up", 0.5, (255, 255, 255))
+        title2_label = title_font1.render("DOWN ARROW for moving down", 0.5, (255, 255, 255))
+        title3_label = title_font1.render("LEFT ARROW for moving left", 0.5, (255, 255, 255))
+        title4_label = title_font1.render("RIGHT ARROW for moving right", 0.5, (255, 255, 255))
         title5_label = title_font1.render("SPACE to shoot", 0.5, (255, 255, 255))
         title6_label = title_font1.render("You will have 5 lives", 0.5, (255, 255, 255))
-        title7_label = title_font1.render(
-            "You will LOSE A LIFE everytime you COLLIDE with an ENEMY or ENEMY EXITED the SCREEN!",
-            0.5,
-            (255, 255, 255),
-        )
-        title8_label = title_font1.render(
-            "You have a limited life! PLayer carefully as if it hits zero, then you die instantly!!",
-            0.5,
-            (255, 255, 255),
-        )
+        title7_label = title_font1.render( "You will LOSE A LIFE everytime you COLLIDE with an ENEMY or ENEMY EXITED the SCREEN!",0.5,(255, 255, 255),)
+        title8_label = title_font1.render("You have a limited life! PLayer carefully as if it hits zero, then you die instantly!!", 0.5,(255, 255, 255),)
+        title9_label = title_font1.render("CLICK THE MOUSE TO CONTINUE", 0.5,(255, 255, 255),)
 
         WIN.blit(title_label, (WIDTH / 2 - title_label.get_width() / 2 - 60, 50))
         WIN.blit(title1_label, (WIDTH / 2 - title1_label.get_width() / 21 - 350, 120))
@@ -344,6 +325,8 @@ def main_menu():
         WIN.blit(title6_label, (WIDTH / 2 - title6_label.get_width() / 2 - 289, 470))
         WIN.blit(title7_label, (WIDTH / 2 - title7_label.get_width() / 2, 540))
         WIN.blit(title8_label, (WIDTH / 2 - title7_label.get_width() / 2 - 2, 610))
+        WIN.blit(title9_label, (WIDTH / 2 - title7_label.get_width() / 2 - 2, 680))
+
 
         pygame.display.update()
         for event in pygame.event.get():
