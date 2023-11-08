@@ -205,7 +205,7 @@ def main():
     player_vel = 5
     laser_vel = 15
 
-    player = Player(300, 630)
+    player = Player(300, 600)
 
     clock = pygame.time.Clock()
 
